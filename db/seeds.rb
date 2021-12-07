@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+org = Type.find_or_create_by(name: 'ORG')
+gpe = Type.find_or_create_by(name: 'GPE')
+money = Type.find_or_create_by(name: 'MONEY')
+
+s = Sentence.find_or_create_by(text: 'Apple is looking at buying U.K. startup for $1 billion.')
+
+Entity.find_or_create_by(text: 'Apple', type_id: org, sentence_id: s)
+Entity.find_or_create_by(text: 'U.K.', type_id: gpe, sentence_id: s)
+Entity.find_or_create_by(text: 'Apple', type_id: money, sentence_id: s)
