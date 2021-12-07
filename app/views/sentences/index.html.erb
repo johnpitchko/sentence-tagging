@@ -4,7 +4,7 @@
 
 <% @sentences.each do |sentence| %>
   <p><%= sentence.text %></p>
-  <p><%= sanitize sentence.tagged %></p>
+  <p><%= sanitize sentence.tagged, tags: %w[mark strong] %></p>
 <% end %>
 
 <%
