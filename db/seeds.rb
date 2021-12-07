@@ -12,6 +12,6 @@ money = Type.find_or_create_by(name: 'MONEY')
 
 s = Sentence.find_or_create_by(text: 'Apple is looking at buying U.K. startup for $1 billion.')
 
-Entity.find_or_create_by(text: 'Apple', type_id: org, sentence_id: s)
-Entity.find_or_create_by(text: 'U.K.', type_id: gpe, sentence_id: s)
-Entity.find_or_create_by(text: 'Apple', type_id: money, sentence_id: s)
+Entity.find_or_create_by(text: 'Apple', type_id: org.id, sentence_id: s.id)
+Entity.find_or_create_by(text: 'U.K.', type_id: gpe.id, sentence_id: s.id)
+Entity.find_or_create_by(text: '$1 billion', type_id: money.id, sentence_id: s.id)
