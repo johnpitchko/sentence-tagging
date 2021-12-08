@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: sentences
+#
+#  id         :integer          not null, primary key
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Sentence < ApplicationRecord
   has_many :entities
   has_many :types, through: :entities
