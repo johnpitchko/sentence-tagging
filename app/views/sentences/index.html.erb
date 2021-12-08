@@ -10,7 +10,7 @@
 <%= form_with do |form| %>
   <%= form.label :selected_words, 'Selected words' %>
   <%= form.text_field :selected_words, readonly: true %>
-  <%= form.collection_select :entity_id, Entity.all, :id, :name%>
+  <%= form.collection_select :type_id, Type.all, :id, :name %>
   <%= form.button 'Tag' %>
 <% end %>
 

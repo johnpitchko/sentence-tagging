@@ -18,7 +18,7 @@ RSpec.feature "Sentences", type: :feature do
 
     expect(page).to have_text @sentence.text
     expect(page).to have_field 'selected_words', readonly: true
-    expect(page).to have_select 'Entity'
+    expect(page).to have_select :type_id
     expect(page).to have_button 'Tag'
   end
 end
