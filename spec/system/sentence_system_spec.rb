@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Sentences', type: :system do
+RSpec.describe 'Sentences', type: :system do
   fixtures :types, :entities, :sentences
 
   before do
