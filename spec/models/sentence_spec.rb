@@ -11,29 +11,27 @@ require 'rails_helper'
 
 # RSpec.describe Sentence, type: :model do
 describe Sentence do
+  fixtures :types, :entities, :sentences
+
+  before do
+    @org = types(:org)
+    @gpe = types(:gpe)
+    @money = types(:money)
+
+    @apple = entities(:apple)
+    @uk = entities(:uk)
+    @billion = entities(:billion)
+
+    @sentence = sentences(:sentence_apple)
+    @sentence.entities << [@apple, @uk, @billion]
+  end
+
   describe 'tag_sentence' do
-    before(:all) do
-      @org = Type.create!(name: 'ORG')
-      @gpe = Type.create!(name: 'GPE')
-      @money = Type.create!(name: 'MONEY')
-
-      @sentence = Sentence.create!(text: 'Apple is looking at buying U.K. startup for $1 billion.')
-
-      @apple = Entity.create!(text: 'Apple', type_id: @org.id)
-      @uk = Entity.create!(text: 'U.K.', type_id: @gpe.id)
-      @billion = Entity.create!(text: '$1 billion', type_id: @money.id)
-
-      @apple.sentences << @sentence
-      @uk.sentences << @sentence
-      @billion.sentences << @sentence
-    end
-
     before(:each) do
       tagged_sentence = @sentence.tagged
     end
 
     it 'tags all 3 entities in the sentence' do
-      skip
     end
   end
 end

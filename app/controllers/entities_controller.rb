@@ -11,10 +11,4 @@ class EntitiesController < ApplicationController
   def entity_params
     params.require(:entity).permit(:text, :type_id)
   end
-
-  def create_entity
-    ActiveRecord::Base.transaction do
-      byebug
-    end
-  end
 end
