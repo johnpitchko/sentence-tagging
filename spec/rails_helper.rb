@@ -65,4 +65,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Run standard system tests `rack_test` for faster execution
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  # Run system tests requiring Javascript with headless Chrome (i.e. do not launch browser window)
+  config.before(:each, type: :system, js: true) do
+    #driven_by :selenium_chrome_headless
+    driven_by :selenium, using: :chrome_headless
+  end
 end
