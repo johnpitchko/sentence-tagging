@@ -23,6 +23,9 @@ RSpec.describe 'Sentences', type: :system do
     expect(page).to have_select 'entity[type_id]'
     expect(page).to have_button 'Tag'
     expect(page).to have_field 'entity[sentence_id]', type: :hidden
+
+    expect(page).to have_field 'Sentence text'
+    expect(page).to have_button 'Create Sentence'
   end
 
   # it 'tags a word with an entity', js: true do

@@ -14,3 +14,10 @@
     <%= form.button 'Tag' %>
   <% end %>
 <% end %>
+
+<h2>Add a sentence</h2>
+<%= form_with model: Sentence.new do |form| %>
+  <%= form.label :text, 'Sentence text' %>
+  <%= form.text_field :text %>
+  <%= form.submit %>
+<% end %>
