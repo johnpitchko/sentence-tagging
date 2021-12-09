@@ -5,13 +5,14 @@
 <% @sentences.each do |sentence| %>
   <p><%= sentence.text %></p>
   <p><%= sanitize sentence.tagged, tags: %w[mark strong] %></p>
-<% end %>
 
-<%= form_with do |form| %>
-  <%= form.label :selected_words, 'Selected words' %>
-  <%= form.text_field :selected_words, readonly: true %>
+  <%= form_with model: Entity.new do |form| %>
+  <%= form.hidden_field :sentence_id, value: sentence.id %>
+  <%= form.label :text, 'Selected words' %>
+  <%= form.text_field :text %>
   <%= form.collection_select :type_id, Type.all, :id, :name %>
   <%= form.button 'Tag' %>
+<% end %>
 <% end %>
 
 <%

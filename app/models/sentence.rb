@@ -8,7 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Sentence < ApplicationRecord
-  has_many :entities
+  has_and_belongs_to_many :entities
   has_many :types, through: :entities
 
   def tagged

@@ -19,9 +19,13 @@ describe Sentence do
 
       @sentence = Sentence.create!(text: 'Apple is looking at buying U.K. startup for $1 billion.')
 
-      @apple = Entity.create!(text: 'Apple', type_id: @org.id, sentence_id: @sentence.id)
-      @uk = Entity.create!(text: 'U.K.', type_id: @gpe.id, sentence_id: @sentence.id)
-      @billion = Entity.create!(text: '$1 billion', type_id: @money.id, sentence_id: @sentence.id)
+      @apple = Entity.create!(text: 'Apple', type_id: @org.id)
+      @uk = Entity.create!(text: 'U.K.', type_id: @gpe.id)
+      @billion = Entity.create!(text: '$1 billion', type_id: @money.id)
+
+      @apple.sentences << @sentence
+      @uk.sentences << @sentence
+      @billion.sentences << @sentence
     end
 
     before(:each) do

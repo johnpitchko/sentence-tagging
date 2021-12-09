@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_024721) do
+ActiveRecord::Schema.define(version: 2021_12_09_021932) do
 
   create_table "entities", force: :cascade do |t|
     t.string "text"
-    t.integer "type"
-    t.integer "sentence_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "type_id"
-    t.index ["sentence_id"], name: "index_entities_on_sentence_id"
     t.index ["type_id"], name: "index_entities_on_type_id"
+  end
+
+  create_table "entities_sentences", id: false, force: :cascade do |t|
+    t.integer "sentence_id", null: false
+    t.integer "entity_id", null: false
+    t.index ["entity_id"], name: "index_entities_sentences_on_entity_id"
+    t.index ["sentence_id"], name: "index_entities_sentences_on_sentence_id"
   end
 
   create_table "sentences", force: :cascade do |t|
@@ -35,6 +39,5 @@ ActiveRecord::Schema.define(version: 2021_12_07_024721) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "entities", "sentences"
   add_foreign_key "entities", "types"
 end

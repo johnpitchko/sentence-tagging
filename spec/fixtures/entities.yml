@@ -1,0 +1,11 @@
+apple:
+  text: Apple
+  type: org
+
+uk:
+  text: U.K.
+  type: gpe
+
+billion:
+  text: $1 billion
+  type: money
