@@ -12,13 +12,18 @@ After cloning repo:
 bundle
 yarn
 rails db:setup
-rails s
 ```
 
 ## Testing
 
 ```
 rspec
+```
+
+## Launching
+
+```
+rails s
 ```
 
 Copyright 2021 John Pitchko
