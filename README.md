@@ -1,24 +1,20 @@
-# README
+# Sentence Tagging
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+Straight-forward Rails setup. Note the `db/seeds.rb` file has some test data, so recommend seeding the database.
 
-* Ruby version
+After cloning repo:
 
-* System dependencies
+```
+bundle
+yarn
+rails db:setup
+rails s
+```
 
-* Configuration
+## Testing
 
-* Database creation
+`rspec`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright 2021 John Pitchko
