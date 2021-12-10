@@ -4,8 +4,11 @@
 
 <% @sentences.each do |sentence| %>
   <p><%#= sentence.text %></p>
-  <p id="<%= sentence.id %>"><%= sanitize sentence.tagged, tags: %w[mark strong] %></p>
-
+  <p id="<%= sentence.id %>"><%= sanitize sentence.tagged, tags: %w[mark strong] %>
+  <%= link_to sentence, id: 'destroy_sentence', method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="fa fa-trash"></i>
+  <% end %>
+  </p>
 <% end %>
 
   <%= form_with model: Entity.new, id: 'new_entity_form' do |form| %>

@@ -12,3 +12,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import './sentence.js'
+
+import "@fortawesome/fontawesome-free/css/all"
+import "@fortawesome/fontawesome-free/js/all"

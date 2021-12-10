@@ -16,10 +16,12 @@ RSpec.describe 'Sentences', type: :system do
     @billion = entities(:billion)
   end
 
-  it 'loads the main page and renders the sentence' do
+  it 'loads the main page and renders the sentences' do
     visit root_path
 
     expect(page).to have_text @sentence.text
+    expect(page).to have_link 'destroy_sentence', href: sentence_path(@sentence)
+
     expect(page).to have_field 'entity[text]'
     expect(page).to have_select 'entity[type_id]'
     expect(page).to have_button 'Tag'

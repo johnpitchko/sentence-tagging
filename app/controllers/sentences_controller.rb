@@ -19,7 +19,7 @@ class SentencesController < ApplicationController
   # def edit
   # end
 
-   # POST /sentences or /sentences.json
+   # POST /sentences
    def create
      @sentence = Sentence.new(sentence_params)
 
@@ -45,14 +45,13 @@ class SentencesController < ApplicationController
   #   end
   # end
 
-  # # DELETE /sentences/1 or /sentences/1.json
-  # def destroy
-  #   @sentence.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to sentences_url, notice: "Sentence was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  # DELETE /sentences/1
+  def destroy
+    @sentence.destroy
+    respond_to do |format|
+      format.html { redirect_to sentences_url, notice: "Sentence was successfully destroyed." }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
