@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: entities
+#
+#  id         :integer          not null, primary key
+#  text       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  type_id    :integer
+#
 apple:
   text: Apple
   type: org
