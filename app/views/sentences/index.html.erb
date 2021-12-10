@@ -3,17 +3,18 @@
 <h1>Sentences</h1>
 
 <% @sentences.each do |sentence| %>
-  <p><%= sentence.text %></p>
-  <p><%= sanitize sentence.tagged, tags: %w[mark strong] %></p>
+  <p><%#= sentence.text %></p>
+  <p id="<%= sentence.id %>"><%= sanitize sentence.tagged, tags: %w[mark strong] %></p>
 
-  <%= form_with model: Entity.new do |form| %>
-    <%= form.hidden_field :sentence_id, value: sentence.id %>
+<% end %>
+
+  <%= form_with model: Entity.new, id: 'new_entity_form' do |form| %>
+    <%= form.hidden_field :sentence_id, value: nil %>
     <%= form.label :text, 'Selected words' %>
     <%= form.text_field :text %>
     <%= form.collection_select :type_id, Type.all, :id, :name %>
-    <%= form.button 'Tag' %>
+    <%= form.button 'Tag entity' %>
   <% end %>
-<% end %>
 
 <h2>Add a sentence</h2>
 <%= form_with model: Sentence.new do |form| %>

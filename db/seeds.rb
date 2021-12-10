@@ -11,6 +11,7 @@ gpe = Type.find_or_create_by(name: 'GPE')
 money = Type.find_or_create_by(name: 'MONEY')
 
 s = Sentence.find_or_create_by(text: 'Apple is looking at buying U.K. startup for $1 billion.')
+s2 = Sentence.find_or_create_by(text: 'Regional funds with exposure to United States and outperform equity market over 3 year')
 
 apple = Entity.find_or_create_by(text: 'Apple', type_id: org.id)
 gpe = Entity.find_or_create_by(text: 'U.K.', type_id: gpe.id)
