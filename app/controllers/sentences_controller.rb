@@ -1,66 +1,41 @@
 class SentencesController < ApplicationController
-  before_action :set_sentence, only: %i[ show edit update destroy ]
+  before_action :set_sentence, only: %i[show edit update destroy]
 
   # GET /sentences or /sentences.json
   def index
     @sentences = Sentence.all
   end
 
-  # # GET /sentences/1 or /sentences/1.json
-  # def show
-  # end
+  # POST /sentences
+  def create
+    @sentence = Sentence.new(sentence_params)
 
-  # # GET /sentences/new
-  # def new
-  #   @sentence = Sentence.new
-  # end
-
-  # # GET /sentences/1/edit
-  # def edit
-  # end
-
-   # POST /sentences
-   def create
-     @sentence = Sentence.new(sentence_params)
-
-     respond_to do |format|
-       if @sentence.save
-         format.html { redirect_to root_path, notice: "Sentence was successfully created." }
-       else
-         format.html { redirect_to root_path , status: :unprocessable_entity }
-       end
-     end
-   end
-
-  # # PATCH/PUT /sentences/1 or /sentences/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @sentence.update(sentence_params)
-  #       format.html { redirect_to @sentence, notice: "Sentence was successfully updated." }
-  #       format.json { render :show, status: :ok, location: @sentence }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @sentence.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @sentence.save
+        format.html { redirect_to root_path, notice: 'Sentence was successfully created.' }
+      else
+        format.html { redirect_to root_path, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /sentences/1
   def destroy
     @sentence.destroy
     respond_to do |format|
-      format.html { redirect_to sentences_url, notice: "Sentence was successfully destroyed." }
+      format.html { redirect_to sentences_url, notice: 'Sentence was successfully destroyed.' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sentence
-      @sentence = Sentence.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def sentence_params
-      params.require(:sentence).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sentence
+    @sentence = Sentence.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def sentence_params
+    params.require(:sentence).permit(:text)
+  end
 end

@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sentences</h1>
+<h1>Sentence Tagging</h1>
+
+<p>Below is a list of sentences from the database. To tag an entity, highlight the chosen text. That text should appear in the text field below. Choose the entity tag from the dropdown box, then click <strong>Tag</strong>.</p>
+
+<p>You can add new sentences below. Sentences can be deleted by clicking the <i class="fa fa-trash"></i> icon next to each sentence.</p>
+
+<p><strong><em>Experimental!</em></strong> This is a work-in-progress technology demo.</p>
+
+<hr />
 
 <% @sentences.each do |sentence| %>
-  <p><%#= sentence.text %></p>
   <p id="<%= sentence.id %>"><%= sanitize sentence.tagged, tags: %w[mark strong] %>
   <%= link_to sentence, id: 'destroy_sentence', method: :delete, data: { confirm: 'Are you sure?' } do %>
     <i class="fa fa-trash"></i>
