@@ -19,20 +19,18 @@ class SentencesController < ApplicationController
   # def edit
   # end
 
-  # # POST /sentences or /sentences.json
-  # def create
-  #   @sentence = Sentence.new(sentence_params)
+   # POST /sentences or /sentences.json
+   def create
+     @sentence = Sentence.new(sentence_params)
 
-  #   respond_to do |format|
-  #     if @sentence.save
-  #       format.html { redirect_to @sentence, notice: "Sentence was successfully created." }
-  #       format.json { render :show, status: :created, location: @sentence }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @sentence.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+     respond_to do |format|
+       if @sentence.save
+         format.html { redirect_to root_path, notice: "Sentence was successfully created." }
+       else
+         format.html { redirect_to root_path , status: :unprocessable_entity }
+       end
+     end
+   end
 
   # # PATCH/PUT /sentences/1 or /sentences/1.json
   # def update
