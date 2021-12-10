@@ -9,8 +9,7 @@
 #
 require 'rails_helper'
 
-# RSpec.describe Sentence, type: :model do
-describe Sentence do
+RSpec.describe Sentence, type: :model do
   fixtures :types, :entities, :sentences
 
 
