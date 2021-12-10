@@ -11,6 +11,8 @@ class Sentence < ApplicationRecord
   has_and_belongs_to_many :entities
   has_many :types, through: :entities
 
+  validates :text, presence: true
+
   def tagged
     tagged_text = text
     entities.each do |entity|
@@ -19,4 +21,7 @@ class Sentence < ApplicationRecord
     end
     tagged_text
   end
+end
+
+class InvalidSentenceError < StandardError
 end
