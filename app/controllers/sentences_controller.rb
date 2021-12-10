@@ -14,7 +14,7 @@ class SentencesController < ApplicationController
       if @sentence.save
         format.html { redirect_to root_path, notice: 'Sentence was successfully created.' }
       else
-        format.html { redirect_to root_path, status: :unprocessable_entity }
+        format.html { redirect_to root_path, alert: "Sentence was invalid" }
       end
     end
   end
