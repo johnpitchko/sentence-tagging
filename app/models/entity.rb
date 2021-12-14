@@ -12,5 +12,5 @@ class Entity < ApplicationRecord
   has_and_belongs_to_many :sentences
   belongs_to :type
 
-  validates :text, presence: true
+  validates :text, presence: { message: 'You must specify the words to tag with an entity.' }
 end

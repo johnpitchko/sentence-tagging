@@ -1,8 +1,14 @@
 class EntitiesController < ApplicationController
   def create
     entity = Entity.create(entity_params)
-    entity.sentences << Sentence.find(params[:entity][:sentence_id])
-    flash[:notice] = 'Tag success'
+
+    if entity.valid?
+      entity.sentences << Sentence.find(params[:entity][:sentence_id])
+      flash[:notice] = 'Tag success'
+    else
+      flash[:alert] = entity.errors.messages
+    end
+
     redirect_to :root
   end
 

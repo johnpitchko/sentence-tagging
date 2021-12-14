@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <%# <% flash.each do |type, msg_hash| %1> %>
+    <%#   <% msg_hash.each_value do |msgs| %1> %>
+    <%#     <% msgs.each do |msg|  %1> %>
+    <%#      <p class="<%= type %1>"><%= msg %1></p> %>
+    <%#     <% end %1> %>
+    <%#   <% end %1> %>
+    <%# <% end %1> %>
+
     <% flash.each do |type, msg| %>
       <p class="<%= type %>"><%= msg %></p>
     <% end %>
