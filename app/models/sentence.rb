@@ -17,7 +17,7 @@ class Sentence < ApplicationRecord
     tagged_text = text
     entities.each do |entity|
       pattern = Regexp.escape(entity.text)
-      tagged_text.sub!(/(#{pattern})/, '<mark>\1' + "<strong> #{entity.type.name}</strong></mark>")
+      tagged_text.sub!(/(#{pattern})/, "<mark class=type-#{entity.type.id}>" + '\1' + "<sup><strong> #{entity.type.name}</strong></sup></mark>")
     end
     tagged_text
   end

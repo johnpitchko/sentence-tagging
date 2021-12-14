@@ -23,3 +23,15 @@
    background: #ff726f;
    padding: 10px;
  }
+
+ .type-2 {
+   background: blue;
+ }
+
+ .type-1 {
+   background: pink;
+ }
+
+ .type-3 {
+   background: orange;
+ }
