@@ -1,5 +1,7 @@
 # Sentence Tagging
 
+My coding test from the Propelor job interview.
+
 ## Setup
 
 Straight-forward Rails setup. Note the `db/seeds.rb` file has some test data, so recommend seeding the database.
